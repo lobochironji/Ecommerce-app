@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/presentation/allcategories/pages/all_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,14 +9,14 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _seeAll(),
+        _seeAll(context),
         const SizedBox(height: 20),
         _categories(),
       ],
     );
   }
 
-  Widget _seeAll() {
+  Widget _seeAll(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -26,10 +27,19 @@ class Categories extends StatelessWidget {
             style:
                 GoogleFonts.outfit(fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          Text(
-            'See All',
-            style:
-                GoogleFonts.outfit(fontWeight: FontWeight.w400, fontSize: 16),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return AllCategoriesPage();
+                },
+              ));
+            },
+            child: Text(
+              'See All',
+              style:
+                  GoogleFonts.outfit(fontWeight: FontWeight.w400, fontSize: 16),
+            ),
           ),
         ],
       ),

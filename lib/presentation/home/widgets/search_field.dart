@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/presentation/search/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({super.key});
@@ -19,12 +20,17 @@ class SearchField extends StatelessWidget {
         },
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(12),
-            focusedBorder:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
-            enabledBorder:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50),
+              borderSide: const BorderSide(color: Colors.grey, width: 1),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50),
+              borderSide: const BorderSide(color: Colors.blue, width: 1),
+            ),
             prefixIcon: Icon(Icons.search),
-            hintText: 'search'),
+            hintText: 'search',
+            hintStyle: GoogleFonts.outfit()),
       ),
     );
   }

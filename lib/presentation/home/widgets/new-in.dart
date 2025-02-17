@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/domain/product/entity/product.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewIn extends StatelessWidget {
   const NewIn({super.key});
@@ -20,16 +21,15 @@ class NewIn extends StatelessWidget {
   }
 
   Widget _newIn() {
-    return const Padding(
+    return  Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 16,
       ),
       child: Text(
         'New In',
-        style: TextStyle(
+        style: GoogleFonts.outfit(
           fontWeight: FontWeight.bold,
           fontSize: 16,
-          color: Colors.white,
         ),
       ),
     );
@@ -49,15 +49,18 @@ class NewIn extends StatelessWidget {
               width: 150,
               height: 200,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(10),
-              ),
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/newin.webp'),
+                    fit: BoxFit.cover,
+                  )),
             );
           },
           separatorBuilder: (context, index) => const SizedBox(
                 width: 10,
               ),
-          itemCount: 5), 
+          itemCount: 5),
     );
   }
 }

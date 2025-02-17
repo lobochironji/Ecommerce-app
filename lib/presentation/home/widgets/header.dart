@@ -1,11 +1,16 @@
 import 'package:ecommerce_app/core/configs/assets/app_vector.dart';
+import 'package:ecommerce_app/data/constant.dart';
+import 'package:ecommerce_app/data/notifier.dart';
 import 'package:ecommerce_app/domain/auth/entity/user.dart';
+import 'package:ecommerce_app/presentation/cart/pages/cart.dart';
 import 'package:ecommerce_app/presentation/home/bloc/user_info_display_cubit.dart';
 import 'package:ecommerce_app/presentation/home/bloc/user_info_display_state.dart';
+import 'package:ecommerce_app/presentation/settings/pagees/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -29,7 +34,8 @@ class Header extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _profileImage(state.user, context),
-                    _gender(state.user),
+                    Expanded(child: _gender(state.user)),
+                    _switchmode(context),
                     _card(context)
                   ],
                 );
@@ -44,7 +50,13 @@ class Header extends StatelessWidget {
 
   Widget _profileImage(UserEntity user, BuildContext context) {
     return GestureDetector(
-      
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return SettingsPage();
+          },
+        ));
+      },
       child: Container(
         height: 40,
         width: 40,
@@ -73,9 +85,31 @@ class Header extends StatelessWidget {
     );
   }
 
+  Widget _switchmode(BuildContext context) {
+    return IconButton(
+      onPressed: () async {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setBool(KConstants.themeMode, true);
+        isDarkModeOn.value = !isDarkModeOn.value;
+      },
+      icon: ValueListenableBuilder(
+        valueListenable: isDarkModeOn,
+        builder: (context, value, child) {
+          return value ? Icon(Icons.dark_mode) : Icon(Icons.light_mode);
+        },
+      ),
+    );
+  }
+
   Widget _card(BuildContext context) {
     return GestureDetector(
-      
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return CartPage();
+          },
+        ));
+      },
       child: Container(
         height: 40,
         width: 40,

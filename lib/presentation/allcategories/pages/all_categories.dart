@@ -1,10 +1,5 @@
-import 'package:ecommerce_app/common/bloc/categories/categories_display_cubit.dart';
-import 'package:ecommerce_app/common/bloc/categories/categories_display_state.dart';
-import 'package:ecommerce_app/presentation/category_products/pages/category_products.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../common/helper/images/image_display.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AllCategoriesPage extends StatelessWidget {
   const AllCategoriesPage({super.key});
@@ -12,89 +7,73 @@ class AllCategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: BlocProvider(
-        create: (context) => CategoriesDisplayCubit()..displayCategories(),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _shopByCategories(),
-              const SizedBox(
-                height: 10,
-              ),
-              _categories()
-            ],
-          ),
+      appBar: AppBar(
+        title: Text(
+          'Shop by Categories',
+          style: GoogleFonts.outfit(fontWeight: FontWeight.bold, fontSize: 22),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [_categories()],
         ),
       ),
     );
   }
 
-  Widget _shopByCategories() {
-    return const Text(
-      'Shop by Categories',
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-    );
-  }
-
   Widget _categories() {
-    return BlocBuilder<CategoriesDisplayCubit, CategoriesDisplayState>(
-      builder: (context, state) {
-        if (state is CategoriesLoading) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (state is CategoriesLoaded) {
-          return ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                      builder: (context) {
-                        return CategoryProductsPage(
-                            categoryEntity: state.categories[index]);
-                      },
-                    ));
-                  },
-                  child: Container(
-                    height: 70,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 23, 23, 23),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: NetworkImage(ImageDisplayHelper
-                                      .generateCategoryImageURL(
-                                          state.categories[index].image)))),
-                        ),
-                        const SizedBox(width: 15),
-                        Text(
-                          state.categories[index].title,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w400),
-                        )
-                      ],
+    List<Map<String, String>> categories = [
+      {"title": "Books", "image": "book.jpg"},
+      {"title": "Electronics", "image": "electronics.jpeg"},
+      {"title": "Gaming", "image": "gaming.webp"},
+    ];
+
+    return ListView.separated(
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            print('Tapped on ${categories[index]['title']}');
+          },
+          child: Container(
+            height: 70,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 54, 98, 204),
+                borderRadius: BorderRadius.circular(8)),
+            child: Row(
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/${categories[index]['image']}'),
+                      fit: BoxFit.cover,  
                     ),
                   ),
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(
-                    height: 10,
-                  ),
-              itemCount: state.categories.length);
-        }
-        return Container();
+                ),
+                const SizedBox(width: 15),
+                Text(
+                  categories[index]['title']!,
+                  style: GoogleFonts.outfit(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400),
+                )
+              ],
+            ),
+          ),
+        );
       },
+      separatorBuilder: (context, index) => const SizedBox(
+        height: 10,
+      ),
+      itemCount: categories.length,
     );
   }
 }
