@@ -6,33 +6,33 @@ Currently, user authentication is fully functional, while key features like prod
 
 📌 Features
 ✅ Implemented
-🔹 User Authentication (Firebase)
+ ## User Authentication (Firebase)
   - Sign Up
   - Sign In
   - Forgot Password
-🔹 Theming & UI
+ ## Theming & UI
   - Light and Dark Mode
   - Well-structured UI components
-🔹 Layout & State Management
+ ## Layout & State Management
   - Basic app layout completed
   - BLoC for efficient state management
 
 🚧 In Progress
-🔹 Dynamic Product Listing
+ ## Dynamic Product Listing
   - Fetch products from Firestore
   - Display products dynamically in a grid or list format
-🔹 Shopping Cart & Checkout
+##  Shopping Cart & Checkout
   - Add/remove items from the cart
   - Proceed to checkout
-🔹 Backend Integration (Firestore)
+ ## Backend Integration (Firestore)
   - Store and retrieve product data
   - Maintain user-specific shopping data
-🔹 Payment Integration
+ ## Payment Integration
   - Secure payment gateway (e.g., Stripe, Razorpay, etc.)
-🔹 Product Search & Filters
+ ## Product Search & Filters
   - Search for products
   - Apply filters and sorting options
-🔹 Favorites & Wishlist
+ ## Favorites & Wishlist
   - Option to mark/unmark products as favorites
 
 🎥 Demo
