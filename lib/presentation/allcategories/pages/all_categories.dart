@@ -34,9 +34,6 @@ class AllCategoriesPage extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () {
-            print('Tapped on ${categories[index]['title']}');
-          },
           child: Container(
             height: 70,
             padding: const EdgeInsets.all(12),

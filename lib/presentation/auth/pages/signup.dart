@@ -1,8 +1,6 @@
 import 'package:ecommerce_app/data/auth/models/user_creation_req.dart';
 import 'package:ecommerce_app/data/notifier.dart';
-// import 'package:ecommerce_app/presentation/auth/pages/enterpassword.dart';
 import 'package:ecommerce_app/presentation/auth/pages/gender_age.dart';
-// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

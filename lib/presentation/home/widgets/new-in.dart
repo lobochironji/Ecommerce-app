@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/domain/product/entity/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +14,7 @@ class NewIn extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        _products([])
+        _products()
       ],
     );
   }
@@ -35,7 +34,7 @@ class NewIn extends StatelessWidget {
     );
   }
 
-  Widget _products(List<ProductEntity> products) {
+  Widget _products() {
     return SizedBox(
       height: 300,
       child: ListView.separated(

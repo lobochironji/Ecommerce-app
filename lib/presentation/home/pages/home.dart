@@ -13,26 +13,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Header(),
-            SizedBox(
-              height: 24,
-            ),
-            SearchField(),
-            SizedBox(
-              height: 24,
-            ),
-            Categories(),
-            SizedBox(
-              height: 24,
-            ),
-            TopSelling(),
-            SizedBox(
-              height: 24,
-            ),
-            NewIn(),
-          ],
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 8),
+          child: Column(
+            children: [
+              Header(),
+              SizedBox(
+                height: 24,
+              ),
+              SearchField(),
+              SizedBox(
+                height: 24,
+              ),
+              Categories(),
+              SizedBox(
+                height: 24,
+              ),
+              TopSelling(),
+              SizedBox(
+                height: 24,
+              ),
+              NewIn(),
+            ],
+          ),
         ),
       ),
     );

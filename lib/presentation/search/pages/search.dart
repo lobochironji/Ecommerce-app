@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -7,7 +8,10 @@ class Search extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Search'),
+        title: Text(
+          'Search',
+          style: GoogleFonts.outfit(),
+        ),
       ),
       body: Container(),
     );
