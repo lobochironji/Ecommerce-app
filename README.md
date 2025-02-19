@@ -37,7 +37,7 @@ Currently, user authentication is fully functional, while key features like prod
 
 🎥 Demo
 Check out a working demo of the application here:
-📽️ Demo Video
+📽️ [Demo Video](https://drive.google.com/file/d/1kGh79ZMCFlTI7X76NZmSqO8gzigRWnt3/view?usp=drive_link)
 
 🚀 Installation 
 
