@@ -14,7 +14,10 @@ This Flutter-based e-commerce application provides a structured and scalable fou
 - **Dynamic Product Listing**  
 - **Shopping Cart & Checkout**  
 - **Firestore Backend Integration**  
-- **BLoC State Management**  
+- **BLoC State Management**
+
+##Here is a demo video
+https://drive.google.com/file/d/1kGh79ZMCFlTI7X76NZmSqO8gzigRWnt3/view?usp=drive_link 
 
 ## 🚀 Installation 
 
@@ -28,5 +31,4 @@ This Flutter-based e-commerce application provides a structured and scalable fou
 3. Run
    ```sh
    flutter run 
-
 
