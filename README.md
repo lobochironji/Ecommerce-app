@@ -23,8 +23,10 @@ This Flutter-based e-commerce application provides a structured and scalable fou
    git clone https://github.com/lobochironji/Ecommerce-app.git
    cd Ecommerce-app
 2. Install dependencies
-   ``` flutter pub get ```
+   ``` sh
+   flutter pub get 
 3. Run
-   ``` flutter run ```
+   ```sh
+   flutter run 
 
 
